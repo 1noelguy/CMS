@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/all.min.css">
+    <link rel="stylesheet" href="/fontawesome.min.css">
+    <link rel="stylesheet" href="/style.css">
+
+    <title>CMS</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="/home">
+                        <span class="icon"><i class="fa fa-apple"></i></span>
+                        <span class="title"><h2>Logo</h2></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/home">
+                        <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/user_page">
+                        <span class="icon"><i class="fa fa-users" aria-hidden="true"></i></span>
+                        <span class="title User_page">Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/request_page">
+                        <span class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                        <span class="title">Requests</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/newRequest_page">
+                        <span class="icon"><i class="fa fa-question-circle" aria-hidden="true"></i></span>
+                        <span class="title">New Requests</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/certificates_page">
+                        <span class="icon"><i class="fa fa-certificate" aria-hidden="true"></i></span>
+                        <span class="title">Certificates</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+                        <span class="title" onclick="logout()">sign out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle" onclick="toggleMenu();"></div>
+                <div class="search">
+                    <label for="">
+                        <input type="text" placeholder="search here">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </label>
+                </div>
+                <div class="user">
+                        <img src="/user.png">
+                </div>
+            </div>
+
+            <div class="sub">
+                <div class = "desc">
+                    <h2>Summary</h2>
+                </div>
+                <hr>
+            </div>
+
+            <div class="cardBox">
+                <div class="card">
+                    <div>
+                        <div class="numbers">250</div>
+                        <div class="cardName">Total</div>
+                    </div>
+                    <div class="iconBox">
+                        <!-- some icon here -->
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div>
+                        <div class="numbers">23</div>
+                        <div class="cardName">Pending</div>
+                    </div>
+                    <div class="iconBox">
+                        <!-- some icon here -->
+                    </div>
+                </div>
+
+                
+                <div class="card">
+                    <div>
+                        <div class="numbers">3</div>
+                        <div class="cardName">In Progress</div>
+                    </div>
+                    <div class="iconBox">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div>
+                        <div class="numbers">54</div>
+                        <div class="cardName">Completed</div>
+                    </div>
+                    <div class="iconBox">
+                        <!-- some icon here -->
+                    </div>
+                </div>
+            </div>
+            <div class="sub">
+                <div class = "desc">
+                    <h2>Certificates In Progress</h2>
+                </div>
+                <hr>
+            </div>
+
+            <div class="details">
+                <div class="certificates">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>REQUESTER</td>
+                                <td>DOMAIN NAME</td>
+                                <td>DOMAIN TYPE</td>
+                                <td>PROJECT TITTLE</td>
+                                <td>STATUS</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>noel.agana1@vodafone.com</td>
+                                <td>simreg.internal.vodafone.com</td>
+                                <td>Private</td>
+                                <td>Sim Registration</td>
+                                <td><span class="status">Pending</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="JS/index.js"></script>
+    <script>
+        
+    </script>
+</body>
+</html>
