@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const db = require("../lib/db.js");
 const userMiddleware = require("../middleware/users.js");
+const jwt = require("jsonwebtoken");
 
 //submit certificate
 router.post(
@@ -131,6 +132,60 @@ router.get(
     }
   }
 );
+
+// Get Certificates for a particular user
+router.get("/myCerts/", async (req, res) => {
+  const token = req.cookies.jwt;
+
+  if (token) {
+    jwt.verify(token, "SECRETKEY", async (err, decodedToken) => {
+      if (err) {
+        console.log(err.message);
+        // res.locals.user = "im here";
+      } else {
+        console.log(decodedToken);
+        await db.query(
+          `select userEmail from users where userID = ${db.escape(
+            decodedToken.userID
+          )}`,
+          async (err, result) => {
+            if (err) {
+              console.log(err);
+            } else {
+              // console.log(result);
+              // console.log("i mean here",);
+              try {
+                const query = `SELECT * FROM certificates WHERE userEmail = ?;`;
+
+                await new Promise((resolve, reject) => {
+                  db.query(query, [result[0].userEmail], (err, result) => {
+                    if (err) {
+                      return res.status(400).send({
+                        message: err,
+                      });
+                    } else {
+                      resolve(result);
+                      return res.status(200).send({
+                        message: "Success!",
+                        data: result,
+                      });
+                    }
+                  });
+                });
+              } catch (error) {
+                return res.status(400).send({
+                  message: error,
+                });
+              }
+            }
+          }
+        );
+      }
+    });
+  } else {
+    res.locals.user = "here Rather";
+  }
+});
 
 //Update user
 router.put("", userMiddleware.isLoggedIn, (req, res) => {});
